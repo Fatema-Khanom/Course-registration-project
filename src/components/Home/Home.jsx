@@ -3,11 +3,15 @@ import Cart from "../Cart/Cart";
 
 const Home = () => {
   const [allCourse,setAllCourse]=useState([])
+  const [selectedCourse,setSelectedCourse]=useState([])
   useEffect(()=>{
     fetch("/public/block.json")
     .then((res)=>res.json())
     .then((data)=>setAllCourse(data))
   },[])
+  const handleSelectCourse=(course)=>{
+    setSelectedCourse([...selectedCourse,course])
+  }
    
     return (
         <div className="w-10/12 m-auto">
@@ -33,7 +37,7 @@ const Home = () => {
                 <img src="./public/images/Frame.png" alt="" />
                 <p className="font-semibold">Credit: {course.credit}</p>
               </div>
-              <button className="bg-blue-600 rounded mt-4 w-[100%] p-[4px]">Select</button>
+              <button onClick={()=>handleSelectCourse(course)} className="bg-blue-600 rounded mt-4 w-[100%] p-[4px]">Select</button>
              </div>
               
             </div>
@@ -41,7 +45,7 @@ const Home = () => {
         
         </div>
         <div className="cart">
-          <h2>this is card bjjvhhvhvcgc sbh</h2>
+          <Cart selectedCourse={selectedCourse}></Cart>
         </div>
       </div>
     </div>
