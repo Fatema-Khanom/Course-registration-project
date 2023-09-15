@@ -3,7 +3,7 @@
         "id": 1,
         "cover": "https://i.ibb.co/23W4rHz/pic-1.png",
         "title": "Introduction to C Programming",
-        "description": "Master the fundamentals of C programming language and unleash your coding potential.",
+        "description": "Master the fundamentals of C programming language.",
         "price": 15000,
         "credit": 1
     },
@@ -27,7 +27,7 @@
         "id": 4,
         "cover": "https://i.ibb.co/86kytfD/pic-4.png",
         "title": "Basic Data Structures",
-        "description": "Build a solid foundation in essential data structures for efficient coding.",
+        "description": "Build a solid foundation in essential data structures for efficient coding and create dynamic applications.",
         "price": 35000,
         "credit": 5
     },
