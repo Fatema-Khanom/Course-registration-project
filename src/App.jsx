@@ -1,13 +1,17 @@
 
 import './App.css'
+import Header from './components/Header/Header'
+import Home from './components/Home/Home'
+import Cart from './components/Cart/Cart'
 
 function App() {
   
 
   return (
-    <>
-      <h3>Course Registrstion</h3>
-    </>
+    <div className='bg-gray-100' >
+     <Header></Header>
+     <Home></Home>
+    </div>
   )
 }
 
