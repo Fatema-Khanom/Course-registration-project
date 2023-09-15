@@ -40,8 +40,8 @@ const Home = () => {
    
     return (
         <div className="w-10/12 m-auto pb-16">
-      <div className="flex justify-evenly gap-6">
-        <div className="grid grid-cols-3 gap-6">
+      <div className=" lg:flex justify-evenly gap-6">
+        <div className=" w-10/12 m-auto mb-6 grid  md:grid-cols-2 lg:grid-cols-3 gap-6">
           
             {
               allCourse.map((course)=>(
@@ -69,7 +69,7 @@ const Home = () => {
               ))}
         
         </div>
-        <div className="cart">
+        <div className=" ">
           <Cart selectedCourse={selectedCourse} remaining={remaining} totalHour={totalHour}></Cart>
         </div>
       </div>
