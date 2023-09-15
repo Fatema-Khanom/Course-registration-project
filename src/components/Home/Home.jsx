@@ -18,7 +18,7 @@ const Home = () => {
     )
     let count =course.credit
     if(isExist){
-      swal("Oops!", "Already enrolled!", "error");
+      swal("Oops!", "This course already enrolled!", "error");
     }
     else{
       selectedCourse.forEach((item)=>{
