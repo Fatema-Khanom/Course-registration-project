@@ -8,7 +8,7 @@ const Home = () => {
   const [remaining,setRemaining]=useState(20)
   const [totalHour,setTotalHour]=useState(0)
   useEffect(()=>{
-    fetch("/public/block.json")
+    fetch("./block.json")
     .then((res)=>res.json())
     .then((data)=>setAllCourse(data))
   },[])
