@@ -1,20 +1,45 @@
 import { useEffect, useState } from "react";
 import Cart from "../Cart/Cart";
+import swal from 'sweetalert';
 
 const Home = () => {
   const [allCourse,setAllCourse]=useState([])
   const [selectedCourse,setSelectedCourse]=useState([])
+  const [remaining,setRemaining]=useState(20)
+  const [totalHour,setTotalHour]=useState(0)
   useEffect(()=>{
     fetch("/public/block.json")
     .then((res)=>res.json())
     .then((data)=>setAllCourse(data))
   },[])
   const handleSelectCourse=(course)=>{
-    setSelectedCourse([...selectedCourse,course])
+    const isExist=selectedCourse.find((item)=>
+      item.id==course.id
+    )
+    let count =course.credit
+    if(isExist){
+      swal("Oops!", "Already enrolled!", "error");
+    }
+    else{
+      selectedCourse.forEach((item)=>{
+        count+=item.credit
+      })
+      const totalRemaining=20-count
+      
+      if(count>20){
+        swal("Oops!", "Credit hour already finished!", "error");
+      }
+      else{
+        setTotalHour(count)
+        setRemaining(totalRemaining)
+        setSelectedCourse([...selectedCourse,course])
+      }
+    }
+   
   }
    
     return (
-        <div className="w-10/12 m-auto">
+        <div className="w-10/12 m-auto pb-16">
       <div className="flex justify-evenly gap-6">
         <div className="grid grid-cols-3 gap-6">
           
@@ -45,7 +70,7 @@ const Home = () => {
         
         </div>
         <div className="cart">
-          <Cart selectedCourse={selectedCourse}></Cart>
+          <Cart selectedCourse={selectedCourse} remaining={remaining} totalHour={totalHour}></Cart>
         </div>
       </div>
     </div>
